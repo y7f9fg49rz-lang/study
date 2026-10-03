@@ -1,0 +1,67 @@
+# ============ macOS 系统文件 ============
+.DS_Store
+.DS_Store/
+.AppleDouble
+.LSOverride
+._*
+*~
+
+# ============ 编辑器 / IDE ============
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ============ C / C++ 编译产物 ============
+# 目标文件、静态/动态库、可执行文件
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.out
+*.exe
+
+# c/ 与 c++/ 下的无扩展名可执行文件（clang/gcc 默认输出名，如 guess、average、reverse）
+# 思路：先忽略目录下所有条目，再用白名单放回源码文件与子目录
+c/*
+c++/*
+!c/*/
+!c++/*/
+!c/*.c
+!c/*.cpp
+!c/*.cc
+!c/*.cxx
+!c/*.h
+!c/*.hpp
+!c/*.md
+!c/*.txt
+!c++/*.cpp
+!c++/*.cc
+!c++/*.cxx
+!c++/*.h
+!c++/*.hpp
+!c++/*.md
+!c++/*.txt
+
+# 白名单放回子目录后，重新忽略里面的工具/系统产物
+# （必须放在 !c/*/ 之后，否则会被重新包含）
+.vscode/
+*.dSYM/
+.DS_Store
+
+# ============ Python ============
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# ============ 日志 / 临时文件 ============
+*.log
+*.tmp
