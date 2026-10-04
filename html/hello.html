@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>李慧欣 · 自我介绍</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F1522'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' font-weight='bold' text-anchor='middle' fill='%23E8A33D'%3ELH%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#0F1522;
+    --bg-soft:#151D30;
+    --bg-card:#131A2B;
+    --ink:#E8EAF0;
+    --muted:#99A2B8;
+    --accent:#E8A33D;
+    --accent-soft:rgba(232,163,61,.12);
+    --line:rgba(232,234,240,.09);
+    --serif:'Noto Serif SC','Songti SC','SimSun',serif;
+    --sans:'Noto Sans SC','PingFang SC','Helvetica Neue',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-weight:300;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accent);color:#0F1522}
+  a{color:inherit;text-decoration:none}
+
+  /* ===== 导航 ===== */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 max(24px,calc((100vw - 1080px)/2));
+    height:64px;
+    border-bottom:1px solid transparent;
+    transition:background .3s,border-color .3s;
+  }
+  .nav.scrolled{background:rgba(15,21,34,.85);backdrop-filter:blur(10px);border-color:var(--line)}
+  .nav .logo{font-family:var(--serif);font-weight:900;font-size:20px;letter-spacing:.02em}
+  .nav .logo em{color:var(--accent);font-style:normal}
+  .nav-links{display:flex;gap:28px;font-size:14px;color:var(--muted)}
+  .nav-links a{transition:color .2s}
+  .nav-links a:hover{color:var(--accent)}
+  .nav-burger{display:none;background:none;border:0;color:var(--ink);cursor:pointer;padding:8px}
+  .nav-burger svg{display:block}
+
+  main{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* ===== Hero ===== */
+  .hero{
+    min-height:100vh;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:96px 0 64px;
+    position:relative;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(600px 340px at 78% 30%,rgba(232,163,61,.10),transparent 65%),
+      radial-gradient(520px 300px at 12% 85%,rgba(90,120,255,.08),transparent 60%);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:
+      linear-gradient(rgba(232,234,240,.04) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(232,234,240,.04) 1px,transparent 1px);
+    background-size:44px 44px;
+    -webkit-mask-image:radial-gradient(720px 420px at 60% 40%,#000 30%,transparent 75%);
+    mask-image:radial-gradient(720px 420px at 60% 40%,#000 30%,transparent 75%);
+  }
+  .hero-inner{position:relative;z-index:1;display:flex;align-items:center;gap:56px}
+  .hero-text{flex:1}
+  .hero-eyebrow{
+    display:inline-block;font-size:13px;color:var(--accent);
+    border:1px solid var(--accent-soft);background:var(--accent-soft);
+    padding:4px 14px;border-radius:999px;margin-bottom:24px;
+  }
+  .hero-name{
+    font-family:var(--serif);font-weight:900;
+    font-size:clamp(48px,7.5vw,84px);
+    line-height:1.12;letter-spacing:.01em;
+  }
+  .hero-name em{color:var(--accent);font-style:normal}
+  .hero-sub{
+    margin-top:18px;font-size:clamp(17px,2vw,21px);color:var(--muted);
+    font-weight:300;
+  }
+  .hero-desc{margin-top:14px;color:var(--muted);font-size:15px;max-width:34em}
+  .hero-cta{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--sans);font-size:15px;font-weight:500;
+    padding:12px 26px;border-radius:8px;cursor:pointer;
+    transition:transform .15s,background .2s,color .2s,border-color .2s;
+    border:1px solid transparent;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--accent);color:#14100A}
+  .btn-primary:hover{background:#F0B155}
+  .btn-ghost{border-color:var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .btn svg{width:16px;height:16px}
+
+  .hero-badge{
+    width:200px;height:200px;flex-shrink:0;position:relative;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .hero-badge .ring{
+    position:absolute;inset:0;border-radius:50%;
+    background:conic-gradient(from 0deg,var(--accent),transparent 32%,transparent 68%,var(--accent));
+    -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));
+    mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));
+    animation:spin 14s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .hero-badge .mono{
+    width:150px;height:150px;border-radius:50%;
+    background:var(--bg-soft);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-weight:900;font-size:54px;color:var(--accent);
+    box-shadow:0 18px 48px rgba(0,0,0,.35);
+  }
+  .hero-meta{
+    margin-top:56px;display:flex;gap:40px;flex-wrap:wrap;
+    border-top:1px solid var(--line);padding-top:24px;
+  }
+  .hero-meta .m{font-size:13px;color:var(--muted)}
+  .hero-meta .m b{display:block;font-family:var(--serif);font-size:20px;color:var(--ink);font-weight:700}
+
+  /* ===== 通用区块 ===== */
+  section{padding:96px 0}
+  .sec-head{margin-bottom:48px}
+  .sec-index{
+    font-family:var(--serif);font-size:14px;color:var(--accent);
+    display:block;margin-bottom:10px;letter-spacing:.14em;
+  }
+  .sec-title{font-family:var(--serif);font-size:clamp(28px,4vw,38px);font-weight:700}
+  .sec-title em{color:var(--accent);font-style:normal}
+  .sec-lead{margin-top:12px;color:var(--muted);font-size:15px;max-width:46em}
+
+  /* ===== 关于 ===== */
+  .about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:start}
+  .about-text p{color:var(--muted);font-size:16px;margin-bottom:18px}
+  .about-text p strong{color:var(--ink);font-weight:500}
+  .fact-list{border-top:1px solid var(--line)}
+  .fact-list .fact{
+    display:flex;justify-content:space-between;gap:16px;
+    padding:16px 2px;border-bottom:1px solid var(--line);font-size:15px;
+  }
+  .fact-list .fact span:first-child{color:var(--muted)}
+  .fact-list .fact span:last-child{color:var(--ink);text-align:right}
+
+  /* ===== 技能 ===== */
+  .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .skill-card{
+    background:var(--bg-card);border:1px solid var(--line);border-radius:12px;
+    padding:28px;transition:border-color .25s,transform .25s;
+  }
+  .skill-card:hover{border-color:rgba(232,163,61,.45);transform:translateY(-3px)}
+  .skill-card .ic{
+    width:44px;height:44px;border-radius:10px;margin-bottom:18px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--accent-soft);color:var(--accent);
+  }
+  .skill-card .ic svg{width:22px;height:22px}
+  .skill-card h3{font-family:var(--serif);font-size:19px;font-weight:700;margin-bottom:8px}
+  .skill-card p{color:var(--muted);font-size:14px;margin-bottom:14px}
+  .skill-card .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .skill-card .tags i{
+    font-style:normal;font-size:12px;color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;padding:3px 12px;
+  }
+  .skill-card .lv{font-size:12px;color:var(--accent);margin-top:14px;display:block}
+
+  /* ===== 时间轴 ===== */
+  .timeline{display:flex;flex-direction:column;gap:0}
+  .tl-row{display:grid;grid-template-columns:120px 64px 1fr;align-items:stretch}
+  .tl-time{
+    padding:22px 16px 22px 0;text-align:right;
+    font-family:var(--serif);font-size:15px;color:var(--accent);
+    white-space:nowrap;
+  }
+  .tl-track{position:relative;display:flex;justify-content:center}
+  .tl-track::before{
+    content:"";position:absolute;top:0;bottom:0;width:1px;
+    background:var(--line);left:50%;
+  }
+  .tl-dot{
+    width:13px;height:13px;border-radius:50%;margin-top:26px;
+    background:var(--bg);border:2px solid var(--accent);
+    justify-self:center;align-self:start;position:relative;z-index:1;
+  }
+  .tl-body{padding:16px 0 16px 24px}
+  .tl-card{
+    background:var(--bg-card);border:1px solid var(--line);border-radius:12px;
+    padding:22px 24px;max-width:560px;
+  }
+  .tl-card h3{font-family:var(--serif);font-size:18px;font-weight:700;margin-bottom:6px}
+  .tl-card p{color:var(--muted);font-size:14px}
+
+  /* ===== 兴趣 ===== */
+  .interest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .interest-card{
+    background:var(--bg-card);border:1px solid var(--line);border-radius:12px;
+    padding:30px 26px;transition:border-color .25s,transform .25s;
+  }
+  .interest-card:hover{border-color:rgba(232,163,61,.45);transform:translateY(-3px)}
+  .interest-card .num{
+    font-family:var(--serif);font-size:13px;color:var(--accent);
+    display:block;margin-bottom:14px;letter-spacing:.12em;
+  }
+  .interest-card h3{font-family:var(--serif);font-size:20px;font-weight:700;margin-bottom:8px}
+  .interest-card p{color:var(--muted);font-size:14px}
+
+  /* ===== 联系 ===== */
+  .contact{
+    border:1px solid var(--line);border-radius:16px;
+    background:linear-gradient(180deg,rgba(232,163,61,.06),transparent 55%),var(--bg-soft);
+    padding:56px 48px;text-align:center;
+  }
+  .contact .sec-title{font-size:clamp(26px,3.6vw,34px)}
+  .contact .sec-lead{margin:12px auto 32px}
+  .contact-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .mail-line{
+    margin-top:28px;display:flex;align-items:center;justify-content:center;gap:12px;
+    color:var(--muted);font-size:15px;flex-wrap:wrap;
+  }
+  .mail-line code{
+    font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:14px;
+    background:rgba(232,234,240,.06);border:1px solid var(--line);
+    padding:4px 12px;border-radius:6px;color:var(--ink);
+  }
+
+  /* ===== Footer ===== */
+  footer{
+    border-top:1px solid var(--line);margin-top:32px;
+    padding:40px 24px 48px;text-align:center;color:var(--muted);font-size:13px;
+  }
+
+  /* ===== Toast ===== */
+  .toast{
+    position:fixed;left:50%;bottom:32px;transform:translate(-50%,80px);
+    background:var(--ink);color:var(--bg);font-size:14px;font-weight:500;
+    padding:12px 22px;border-radius:8px;z-index:99;opacity:0;
+    transition:transform .3s,opacity .3s;pointer-events:none;
+  }
+  .toast.show{transform:translate(-50%,0);opacity:1}
+
+  /* ===== 响应式 ===== */
+  @media (max-width:840px){
+    .nav-links{display:none}
+    .nav-links.open{display:flex;position:fixed;top:64px;left:0;right:0;flex-direction:column;gap:0;background:rgba(15,21,34,.97);border-bottom:1px solid var(--line);padding:8px 0}
+    .nav-links.open a{padding:14px 24px;font-size:15px}
+    .nav-burger{display:block}
+    .hero-inner{flex-direction:column-reverse;text-align:center;gap:40px}
+    .hero-badge{width:150px;height:150px}
+    .hero-badge .mono{width:112px;height:112px;font-size:40px}
+    .hero-cta,.hero-meta{justify-content:center}
+    .hero-meta{gap:24px}
+    .about-grid{grid-template-columns:1fr}
+    .skill-grid{grid-template-columns:1fr}
+    .interest-grid{grid-template-columns:1fr}
+    .tl-row{grid-template-columns:76px 44px 1fr}
+    .tl-time{font-size:13px;white-space:normal;line-height:1.4}
+    .tl-body{padding-left:16px}
+    .contact{padding:44px 24px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .hero-badge .ring{animation:none}
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="logo" href="#top">李<em>慧</em>欣</a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#about">关于</a>
+    <a href="#skills">正在学</a>
+    <a href="#journey">经历</a>
+    <a href="#interests">兴趣</a>
+    <a href="#contact">联系</a>
+  </nav>
+  <button class="nav-burger" id="burger" aria-label="打开菜单">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+</header>
+
+<main>
+  <!-- ===== 视图：Hero ===== -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="hero-eyebrow">你好，我是</span>
+        <h1 class="hero-name">李<em>慧</em>欣</h1>
+        <p class="hero-sub">准大一新生 · 计算机科学方向</p>
+        <p class="hero-desc">正在从 C 语言出发，一步步认识程序运行的底层世界。喜欢把问题拆到本质，再亲手验证。</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="mailto:hello@example.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            给我发邮件
+          </a>
+          <a class="btn btn-ghost" href="#journey">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10M7 14l5-5 5 5"/><path d="M5 4h14"/></svg>
+            看看我的经历
+          </a>
+        </div>
+        <div class="hero-meta">
+          <div class="m"><b>C / Python</b>正在学习的语言</div>
+          <div class="m"><b>Git</b>版本控制入门中</div>
+          <div class="m"><b>VS Code</b>主力编辑器</div>
+        </div>
+      </div>
+      <div class="hero-badge" aria-hidden="true">
+        <span class="ring"></span>
+        <span class="mono">LH</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 视图：关于 ===== -->
+  <section id="about">
+    <div class="sec-head">
+      <span class="sec-index">01 · 关于我</span>
+      <h2 class="sec-title">从一行 <em>Hello World</em> 开始</h2>
+      <p class="sec-lead">关于我的一些基本信息。</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>我是<strong>李慧欣</strong>，刚刚结束高中生活，即将进入大学学习计算机科学。比起直接背结论，我更喜欢追问背后的为什么——比如学习 C 语言时，特意去搞清楚了<strong>指针的物理本质</strong>、变量在内存里到底是怎么存的。</p>
+        <p>目前的学习路径是 <strong>C → Python → Git</strong>：先用 C 建立对内存和底层的直觉，再用 Python 感受开发效率，最后用 Git 把散落的学习代码管理起来。我习惯把学到的东西整理成代码文件，逐个编译运行验证。</p>
+      </div>
+      <div class="fact-list">
+        <div class="fact"><span>身份</span><span>准大一新生</span></div>
+        <div class="fact"><span>专业方向</span><span>计算机科学</span></div>
+        <div class="fact"><span>最近在学</span><span>C · Python · Git</span></div>
+        <div class="fact"><span>位置</span><span>南京</span></div>
+        <div class="fact"><span>学习方法</span><span>读代码 → 编译 → 验证</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 视图：正在学 ===== -->
+  <section id="skills">
+    <div class="sec-head">
+      <span class="sec-index">02 · 正在学</span>
+      <h2 class="sec-title">当前的学习 <em>工具箱</em></h2>
+      <p class="sec-lead">不是熟练度打分，只是如实记录我走到哪里了。</p>
+    </div>
+    <div class="skill-grid">
+      <div class="skill-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14 4l-4 16"/></svg></div>
+        <h3>C 语言</h3>
+        <p>从语法到内存模型，做过猜数字、指针、字符串算法等练习，正在建立对底层的直觉。</p>
+        <div class="tags"><i>指针</i><i>内存</i><i>数组</i><i>循环</i></div>
+        <span class="lv">阶段：语法 → 指针理解中</span>
+      </div>
+      <div class="skill-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 8.66 15H12V2Z"/><path d="M12 12v10a10 10 0 0 1-8.66-5L12 12Z"/></svg></div>
+        <h3>Python</h3>
+        <p>刚入门：Hello World、环境变量读取，正在感受"不用管内存也能写程序"的开发体验。</p>
+        <div class="tags"><i>基础语法</i><i>os 模块</i></div>
+        <span class="lv">阶段：入门</span>
+      </div>
+      <div class="skill-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12"/></svg></div>
+        <h3>Git 与 GitHub</h3>
+        <p>已配置 .gitignore 管理学习仓库，装了 GitHub CLI，正在学习推送、分支这些核心概念。</p>
+        <div class="tags"><i>git push</i><i>gitignore</i><i>gh cli</i></div>
+        <span class="lv">阶段：入门</span>
+      </div>
+      <div class="skill-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>工具链</h3>
+        <p>macOS + VS Code 的开发环境，从环境变量到命令行，慢慢把日常操作搬到终端里。</p>
+        <div class="tags"><i>终端</i><i>VS Code</i><i>macOS</i></div>
+        <span class="lv">阶段：持续积累</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 视图：时间轴 ===== -->
+  <section id="journey">
+    <div class="sec-head">
+      <span class="sec-index">03 · 经历</span>
+      <h2 class="sec-title">我的学习 <em>轨迹</em></h2>
+      <p class="sec-lead">回头看，每一步都算数。</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-row">
+        <div class="tl-time">2026 · 夏</div>
+        <div class="tl-track"><span class="tl-dot"></span></div>
+        <div class="tl-body"><div class="tl-card"><h3>高中毕业</h3><p>结束高中阶段，确认大学录取，正式迈入准大一新生的行列。</p></div></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">2026 · 07</div>
+        <div class="tl-track"><span class="tl-dot"></span></div>
+        <div class="tl-body"><div class="tl-card"><h3>决定走计算机方向</h3><p>开始研究院校与专业，把目标锁定在计算机科学方向，并提前预习高等数学。</p></div></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">2026 · 08</div>
+        <div class="tl-track"><span class="tl-dot"></span></div>
+        <div class="tl-body"><div class="tl-card"><h3>深入 C 语言</h3><p>从语法到指针的物理本质，用经典算法题练手，理解程序与内存的真实关系。</p></div></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">2026 · 10</div>
+        <div class="tl-track"><span class="tl-dot"></span></div>
+        <div class="tl-body"><div class="tl-card"><h3>Python 与 Git 入门</h3><p>开始 Python 学习，并用 Git 把 c / python 目录的学习代码管理起来。</p></div></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">接下来</div>
+        <div class="tl-track"><span class="tl-dot"></span></div>
+        <div class="tl-body"><div class="tl-card"><h3>大学 · 新的开始</h3><p>进入大学系统学习计算机科学，保持"读代码、跑代码、验证结果"的习惯。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 视图：兴趣 ===== -->
+  <section id="interests">
+    <div class="sec-head">
+      <span class="sec-index">04 · 兴趣</span>
+      <h2 class="sec-title">课堂之外，<em>我在</em></h2>
+      <p class="sec-lead">编程之外，世界还有很多值得探索的部分。</p>
+    </div>
+    <div class="interest-grid">
+      <div class="interest-card">
+        <span class="num">01</span>
+        <h3>科技与数码</h3>
+        <p>关注 Mac 生态下的效率工具，喜欢研究软件到底怎么解决真实问题。</p>
+      </div>
+      <div class="interest-card">
+        <span class="num">02</span>
+        <h3>自驾旅行</h3>
+        <p>计划过川西七天的自驾路线，从装备清单到高原天气，攻略本身就有意思。</p>
+      </div>
+      <div class="interest-card">
+        <span class="num">03</span>
+        <h3>动手验证</h3>
+        <p>无论学代码还是做攻略，都习惯先把原理搞清楚，再亲自跑一遍确认。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 视图：联系 ===== -->
+  <section id="contact">
+    <div class="contact">
+      <span class="sec-index">05 · 联系</span>
+      <h2 class="sec-title">一起聊聊 <em>代码</em></h2>
+      <p class="sec-lead">无论是学习交流、项目合作，还是单纯想认识一下，都欢迎联系我。</p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:hello@example.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          发送邮件
+        </a>
+        <button class="btn btn-ghost" id="copyMail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          复制邮箱
+        </button>
+      </div>
+      <div class="mail-line">
+        <span>邮箱：</span><code id="mailAddr">hello@example.com</code>
+        <span>· GitHub：</span><code>github.com/你的用户名</code>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 李慧欣 · 用 C 的心态写生活，用 Git 的耐心过日子</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // 导航滚动背景
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+
+  // 移动端菜单
+  var burger = document.getElementById('burger');
+  var navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', function () {
+    var open = navLinks.classList.toggle('open');
+    burger.setAttribute('aria-label', open ? '关闭菜单' : '打开菜单');
+  });
+  navLinks.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') navLinks.classList.remove('open');
+  });
+
+  // Toast
+  var toast = document.getElementById('toast');
+  var toastTimer = null;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2000);
+  }
+
+  // 复制邮箱
+  var copyBtn = document.getElementById('copyMail');
+  var mailAddr = document.getElementById('mailAddr');
+  copyBtn.addEventListener('click', function () {
+    var text = mailAddr.textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        showToast('邮箱已复制：' + text);
+      });
+    } else {
+      // 降级方案
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast('邮箱已复制：' + text);
+    }
+  });
+</script>
+</body>
+</html>
