@@ -58,6 +58,7 @@ __pycache__/
 .venv/
 venv/
 env/
+_shots/
 .pytest_cache/
 .mypy_cache/
 .ipynb_checkpoints/
